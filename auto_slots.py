@@ -60,6 +60,9 @@ if remainder == 0:
 else:
     rounded_minutes = minute - remainder + 15
 
+if rounded_minutes < 0 or rounded_minutes > 59:
+    rounded_minutes = 0
+
 rounded_time = now.replace(minute=rounded_minutes, second=0, microsecond=0)
 
 if rounded_minutes == 60:
@@ -72,7 +75,7 @@ n = 0
 while n == 0:
     try:
         slot_time = int(input("enter how much time you want in each slot in minutes : "))
-        if slot_time >= 30 and slot_time <= 360 and slot_time % 15 == 0:
+        if slot_time >= 30 and slot_time <= 360 and slot_time % 15 == 0 :
             n = 1
         else :
             print("slot_time must be between 30 and 360, and must be a multiple of 15.")
